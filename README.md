@@ -30,15 +30,14 @@ Save and Document Results:
 Capture screenshots of the waveform and save the simulation logs to include in your report.
 
 Verilog Code for Traffic Light Controller:
-
-module cyclic_lamp(clk,rst,light); 
-input clk,rst; 
-output reg [2:0] light; 
- parameter [1:0]S0=2'b00,S1=2'b01,S2=2'b10; 
+```
+module cyclic_lamp (clk, light); 
+ input clk; 
+ output reg [0:2] light; 
+ parameter [1:0] S0=0, S1=1, S2=2; 
  parameter RED=3'b100, GREEN=3'b010, YELLOW=3'b001; 
- reg [1:0] state; 
+ reg [0:1] state; 
  always @(posedge clk) 
- 
  case (state) 
  S0: begin // S0 means RED 
  light <= GREEN; state <= S1; 
@@ -56,8 +55,10 @@ default: begin
  endcase
 endmodule
 
+```
 output
-<img width="758" alt="image" src="https://github.com/user-attachments/assets/29938f52-16b1-478d-a285-e431e01a18c8">
+<img width="960" alt="image" src="https://github.com/user-attachments/assets/08a2d7e0-e2db-44ef-9f5f-da360eec16d6">
+
 
 
 
